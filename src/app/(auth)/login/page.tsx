@@ -1,6 +1,7 @@
 export const dynamic = 'force-dynamic'
 
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { LoginForm } from '@/components/auth/login-form'
 import { PawPrint } from 'lucide-react'
 
@@ -58,7 +59,9 @@ export default function LoginPage() {
             <h1 className="text-3xl font-bold text-gray-900">Welcome back</h1>
             <p className="text-gray-500 mt-2">Sign in to your practice account</p>
           </div>
-          <LoginForm />
+          <Suspense fallback={null}>
+            <LoginForm />
+          </Suspense>
         </div>
       </div>
     </div>
