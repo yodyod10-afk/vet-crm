@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import type { Metadata } from 'next'
 import { LoginForm } from '@/components/auth/login-form'
 import { PawPrint } from 'lucide-react'

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import type { Metadata } from 'next'
 import { ForgotPasswordForm } from '@/components/auth/forgot-password-form'
 import { PawPrint } from 'lucide-react'

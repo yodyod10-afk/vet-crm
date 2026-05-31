@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import type { Metadata } from 'next'
 import { AcceptInviteForm } from '@/components/auth/accept-invite-form'
 import { PawPrint } from 'lucide-react'
