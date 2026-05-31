@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
@@ -21,7 +21,6 @@ type FormData = z.infer<typeof schema>
 
 export function LoginForm() {
   const router = useRouter()
-  const searchParams = useSearchParams()
   const [showPassword, setShowPassword] = useState(false)
   const supabase = createClient()
 
@@ -38,8 +37,7 @@ export function LoginForm() {
       toast.error(error.message)
       return
     }
-    const next = searchParams.get('next') || '/dashboard'
-    router.push(next)
+    router.push('/dashboard')
     router.refresh()
   }
 
