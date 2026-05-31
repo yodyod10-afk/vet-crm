@@ -1,4 +1,7 @@
+export const dynamic = 'force-dynamic'
+
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { createClient } from '@/lib/supabase/server'
 import { ClientsTable } from '@/components/clients/clients-table'
 import { ButtonLink } from '@/components/ui/button-link'
@@ -38,7 +41,9 @@ export default async function ClientsPage({
         </div>
         <ButtonLink href="/clients/new"><UserPlus className="w-4 h-4 mr-2" />New Client</ButtonLink>
       </div>
-      <ClientsTable clients={clients ?? []} total={count ?? 0} page={pageNum} pageSize={pageSize} />
+      <Suspense fallback={null}>
+        <ClientsTable clients={clients ?? []} total={count ?? 0} page={pageNum} pageSize={pageSize} />
+      </Suspense>
     </div>
   )
 }
